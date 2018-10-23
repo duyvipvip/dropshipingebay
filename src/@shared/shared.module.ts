@@ -8,10 +8,12 @@ import { CommonModule } from '../../node_modules/@angular/common';
 import { CdkTableModule } from '@angular/cdk/table'
 import { ModalModule } from '../../node_modules/ngx-bootstrap/modal';
 import { CKEditorModule } from 'ngx-ckeditor';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
+        HttpClientModule,
         MatSelectModule,
         CdkTableModule,
         MatTableModule,
@@ -23,6 +25,7 @@ import { CKEditorModule } from 'ngx-ckeditor';
     ],
     exports: [
         FormsModule,
+        HttpClientModule,
         MatSelectModule, 
         CommonModule,
         CdkTableModule,

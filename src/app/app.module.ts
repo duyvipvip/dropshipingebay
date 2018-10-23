@@ -2,21 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AdminComponent } from './admin/admin.component';
-import { ClientComponent } from './client/client.component';
-import { AuthComponent } from './auth/auth.component';
+import { RootRoutingModule } from './app.routing';
+import { Page404ComponentComponent } from './page404-component/page404-component.component';
+import { FormsModule } from '@angular/forms';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdminComponent,
-    ClientComponent,
-    AuthComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        Page404ComponentComponent
+    ],
+    imports: [
+        RootRoutingModule,
+        BrowserModule,
+        FormsModule,
+        AuthModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

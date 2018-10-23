@@ -9,8 +9,6 @@ export class AuthService {
         private http: HttpClient
     ) { }
     public Login(body: any) {
-        
-        
         return this.http.post(`${APICONFIG.BASEPOINT}${APICONFIG.AUTH.LOGIN}`, body).toPromise();
        }
 }
