@@ -6,6 +6,7 @@ import { RootRoutingModule } from './app.routing';
 import { Page404ComponentComponent } from './page404-component/page404-component.component';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,9 @@ import { AuthModule } from './auth/auth.module';
         RootRoutingModule,
         BrowserModule,
         FormsModule,
-        AuthModule
+        AuthModule,
+        ToastrModule.forRoot() // ToastrModule added
+        
     ],
     providers: [],
     bootstrap: [AppComponent]

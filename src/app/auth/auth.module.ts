@@ -13,7 +13,6 @@ import { RegisterComponent } from './register/register.component';
     imports: [
         AuthRoutingModule,
         SharedModule,
-        ToastrModule.forRoot() // ToastrModule added
     ],
     providers: [UserService,AuthService],
     declarations: [

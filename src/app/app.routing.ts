@@ -8,12 +8,12 @@ const routes: Routes = [
             { path: '', redirectTo: 'auth', pathMatch: 'full' },
             {
                 path: 'auth',
-                loadChildren: '../auth/auth.module#AuthModule'
+                loadChildren: './auth/auth.module#AuthModule'
             },
-            // {
-            //     path: 'client',
-            //     loadChildren: './client/client.module.ts#ClientModule'
-            // },
+            {
+                path: 'client',
+                loadChildren: './client/client.module#ClientModule'
+            },
             // {
             //     path: 'admin',
             //     loadChildren: './admin/admin.module#AdminModule'

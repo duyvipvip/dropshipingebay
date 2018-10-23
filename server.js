@@ -41,7 +41,7 @@ app.use('/api/Auth', AuthRouter);
 app.use('/api/History', HistoryRouter);
 app.use('/api/Contact', ContactRouter);
 // mongoose.connect('mongodb://localhost:27017/Broading_House',(err)=>{
-mongoose.connect('mongodb://havanduy:duy123@ds139370.mlab.com:39370/quanlythuenha', (err) => {
+mongoose.connect('mongodb://havanduy:havanduy709@ds139243.mlab.com:39243/dropshippingebay', (err) => {
     if (err) {
         console.log('not connect to the database');
     } else {
