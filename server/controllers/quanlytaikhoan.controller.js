@@ -1,6 +1,6 @@
 const QuanLyTaiKhoanModel = require('../models/quanlytaikhoan.model');
 module.exports = {
-    taotaikhoan: taotaikhoan
+    taotaikhoan: taotaikhoan,
 }
 
 // THEM TAI KHOAN EBAY
