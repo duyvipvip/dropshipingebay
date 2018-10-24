@@ -11,6 +11,7 @@ var UserRouter = require(path.join(__dirname, "/server/routers/user.router"));
 var AuthRouter = require(path.join(__dirname, "/server/routers/auth.router"));
 var HistoryRouter = require(path.join(__dirname, "/server/routers/history.router"));
 var ContactRouter = require(path.join(__dirname, "/server/routers/contact.router"));
+var QuanLySanPhamViponRouter = require(path.join(__dirname, "/server/routers/"));
 
 const QuanLyTaiKhoanRouter = require(path.join(__dirname, "/server/routers/quanlytaikhoan.router"));
 
