@@ -6,6 +6,8 @@ Router.post("/taotaikhoan", taoTaiKhoan);
 Router.get("/laydanhsach", laydanhsach);
 Router.get("/laymottaikhoan/:id", laymottaikhoan);
 Router.put("/chinhsuamottaikhoan/:id", chinhsuamottaikhoan);
+Router.delete("/xoamottaikhoan/:id", xoamottaikhoan);
+
 module.exports = Router;
 
 // 
@@ -154,6 +156,24 @@ function chinhsuamottaikhoan(req, res, next){
         })
     }else{
         QuanLyTaiKhoanConTroller.chinhsuamottaikhoan(req.params.id, req.body)
+            .then((data) => {
+                res.send(data);
+            })
+            .catch((err) => {
+                return next(err);
+            })
+    }
+}
+
+// 
+function xoamottaikhoan(req, res, next){
+    if(!req.params.id){
+        next({
+            statusCode: 400,
+            message: "Id Tai Khoan Require"
+        })
+    }else{
+        QuanLyTaiKhoanConTroller.xoamottaikhoan(req.params.id)
             .then((data) => {
                 res.send(data);
             })

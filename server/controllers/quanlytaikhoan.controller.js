@@ -3,7 +3,8 @@ module.exports = {
     taotaikhoan: taotaikhoan,
     laydanhsach: laydanhsach,
     laymottaikhoan: laymottaikhoan,
-    chinhsuamottaikhoan: chinhsuamottaikhoan
+    chinhsuamottaikhoan: chinhsuamottaikhoan,
+    xoamottaikhoan: xoamottaikhoan
 }
 
 // THEM TAI KHOAN EBAY
@@ -42,6 +43,17 @@ function laymottaikhoan(id){
 //
 function chinhsuamottaikhoan(id, body){
     return QuanLyTaiKhoanModel.findByIdAndUpdate(id, body)
+        .then((data) => {
+            return Promise.resolve(data);
+        })
+        .catch((err) => {
+            return Promise.reject(err);
+        })
+}
+
+//
+function xoamottaikhoan(id){
+    return QuanLyTaiKhoanModel.findByIdAndDelete(id)
         .then((data) => {
             return Promise.resolve(data);
         })
