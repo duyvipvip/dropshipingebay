@@ -116,4 +116,11 @@ function taoTaiKhoan(req, res, next){
 
 // 
 function laydanhsach(req , res, next){
+    QuanLyTaiKhoanConTroller.laydanhsach()
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err) => {
+            return next(err);
+        })
 }
