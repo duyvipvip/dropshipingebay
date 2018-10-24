@@ -12,6 +12,9 @@ var AuthRouter = require(path.join(__dirname, "/server/routers/auth.router"));
 var HistoryRouter = require(path.join(__dirname, "/server/routers/history.router"));
 var ContactRouter = require(path.join(__dirname, "/server/routers/contact.router"));
 
+const QuanLyTaiKhoanRouter = require(path.join(__dirname, "/server/routers/quanlytaikhoan.router"));
+
+
 var allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -40,6 +43,8 @@ app.use('/api/User', UserRouter);
 app.use('/api/Auth', AuthRouter);
 app.use('/api/History', HistoryRouter);
 app.use('/api/Contact', ContactRouter);
+
+app.use('/api/QuanLyTaiKhoan', QuanLyTaiKhoanRouter);
 // mongoose.connect('mongodb://localhost:27017/Broading_House',(err)=>{
 mongoose.connect('mongodb://havanduy:havanduy709@ds139243.mlab.com:39243/dropshippingebay', (err) => {
     if (err) {
