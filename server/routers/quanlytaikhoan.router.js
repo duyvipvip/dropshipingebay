@@ -4,6 +4,7 @@ const QuanLyTaiKhoanConTroller = require("../controllers/quanlytaikhoan.controll
 // CAC ROUTER
 Router.post("/taotaikhoan", taoTaiKhoan);
 Router.get("/laydanhsach", laydanhsach);
+Router.get("/laymottaikhoan/:id", laymottaikhoan);
 module.exports = Router;
 
 // 
@@ -123,4 +124,22 @@ function laydanhsach(req , res, next){
         .catch((err) => {
             return next(err);
         })
+}
+
+//
+function laymottaikhoan(req, res, next){
+    if(!req.params.id){
+        next({
+            statusCode: 400,
+            message: "Id Tai Khoan Require"
+        })
+    }else{
+        QuanLyTaiKhoanConTroller.laymottaikhoan(req.params.id)
+        .then((data) =>{
+            res.send(data);
+        })
+        .catch((err) => {
+            return next(err);
+        })
+    }
 }
