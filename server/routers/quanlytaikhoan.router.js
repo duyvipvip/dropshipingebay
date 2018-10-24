@@ -5,6 +5,7 @@ const QuanLyTaiKhoanConTroller = require("../controllers/quanlytaikhoan.controll
 Router.post("/taotaikhoan", taoTaiKhoan);
 Router.get("/laydanhsach", laydanhsach);
 Router.get("/laymottaikhoan/:id", laymottaikhoan);
+Router.put("/chinhsuamottaikhoan/:id", chinhsuamottaikhoan);
 module.exports = Router;
 
 // 
@@ -141,5 +142,23 @@ function laymottaikhoan(req, res, next){
         .catch((err) => {
             return next(err);
         })
+    }
+}
+
+//
+function chinhsuamottaikhoan(req, res, next){
+    if(!req.params.id){
+        next({
+            statusCode: 400,
+            message: "Id Tai Khoan Require"
+        })
+    }else{
+        QuanLyTaiKhoanConTroller.chinhsuamottaikhoan(req.params.id, req.body)
+            .then((data) => {
+                res.send(data);
+            })
+            .catch((err) => {
+                return next(err);
+            })
     }
 }

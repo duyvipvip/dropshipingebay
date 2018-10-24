@@ -2,7 +2,8 @@ const QuanLyTaiKhoanModel = require('../models/quanlytaikhoan.model');
 module.exports = {
     taotaikhoan: taotaikhoan,
     laydanhsach: laydanhsach,
-    laymottaikhoan: laymottaikhoan
+    laymottaikhoan: laymottaikhoan,
+    chinhsuamottaikhoan: chinhsuamottaikhoan
 }
 
 // THEM TAI KHOAN EBAY
@@ -30,6 +31,17 @@ function laydanhsach(){
 //
 function laymottaikhoan(id){
     return QuanLyTaiKhoanModel.findById(id)
+        .then((data) => {
+            return Promise.resolve(data);
+        })
+        .catch((err) => {
+            return Promise.reject(err);
+        })
+}
+
+//
+function chinhsuamottaikhoan(id, body){
+    return QuanLyTaiKhoanModel.findByIdAndUpdate(id, body)
         .then((data) => {
             return Promise.resolve(data);
         })
