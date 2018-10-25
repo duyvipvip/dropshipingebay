@@ -12,6 +12,12 @@ export const APICONFIG = {
         DELETE_USER:'/api/User/DeleteUser/'
 
     },
+    QUANLYTAIKHOANEBAY:{
+        GETALL_TAIKHOANEBAY: '/api/QuanLyTaiKhoan/laydanhsach',
+        GETONE_TAIKHOANEBAY: (id) => `/api/QuanLyTaiKhoan/laymottaikhoan/${id}`,
+        UPDATEONE_TAIKHOANEBAY: (id) => `/api/QuanLyTaiKhoan/chinhsuamottaikhoan/${id}`,
+        CREATEONE_TAIKHOANEBAY: '/api/QuanLyTaiKhoan/taotaikhoan',
+    },
     AUTH: {
       LOGIN: '/api/auth/login',
       LOGOUT: '/api/auth/logout'

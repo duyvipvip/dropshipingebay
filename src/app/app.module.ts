@@ -7,18 +7,21 @@ import { Page404ComponentComponent } from './page404-component/page404-component
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
     declarations: [
         AppComponent,
-        Page404ComponentComponent
+        Page404ComponentComponent,
     ],
     imports: [
         RootRoutingModule,
         BrowserModule,
         FormsModule,
         AuthModule,
-        ToastrModule.forRoot() // ToastrModule added
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(), // ToastrModule added
         
     ],
     providers: [],

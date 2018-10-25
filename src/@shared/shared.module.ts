@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
         MatTabsModule,
         MatIconModule,
         CKEditorModule,
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
     ],
     exports: [
         FormsModule,
@@ -34,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
         ModalModule,
         MatTabsModule,
         CKEditorModule,
-        MatIconModule
+        MatIconModule,
     ],
     declarations: [],
     providers: [RoomService, UserService],

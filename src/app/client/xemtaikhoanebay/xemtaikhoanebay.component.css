@@ -1,0 +1,15 @@
+p{
+    border: 1px solid #222;
+    margin: 0px;
+    padding: 10px;
+}
+.col-md-2, .col-md-6{
+    padding: 0px;
+}
+.bold{
+    font-weight: bold;
+}
+
+.row{
+    margin: 0px 30px;
+}

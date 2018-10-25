@@ -1,0 +1,49 @@
+<div class="row" *ngIf="taikhoanebay">
+  <div class="col-md-2">
+    <p class="bold">ID:</p>
+    <p class="bold">Tên Đăng Kí:</p>
+    <p class="bold">Địa Chỉ:</p>
+    <p class="bold">State:</p>
+    <p class="bold">Zipcode:</p>
+    <p class="bold">Visa:</p>
+    <p class="bold">Ngày Hết Hạn Visa:</p>
+    <p class="bold">Cvv:</p>
+    <p class="bold">Số điện thoại:</p>
+    <p class="bold">Birthday:</p>
+    <p class="bold">CMND/GPLX:</p>
+    <p class="bold">Ebay:</p>
+    <p class="bold">User Id:</p>
+    <p class="bold">Date Register:</p>
+    <p class="bold">Count Limit:</p>
+    <p class="bold">Paypal:</p>
+    <p class="bold">Pass Paypal:</p>
+    <p class="bold">Name Vitual:</p>
+  </div>
+  <div class="col-md-6">
+      <p>{{taikhoanebay._id}}</p>
+      <p>{{taikhoanebay.name_register}}</p>
+      <p>{{taikhoanebay.address}}</p>
+      <p>{{taikhoanebay.state}}</p>
+      <p>{{taikhoanebay.zipcode}}</p>
+      <p>{{taikhoanebay.visa}}</p>
+      <p>{{taikhoanebay.date}}</p>
+      <p>{{taikhoanebay.cvv}}</p>
+      <p>{{taikhoanebay.sdt}}</p>
+      <p>{{taikhoanebay.birthday}}</p>
+      <p>{{taikhoanebay.cmt_gplx}}</p>
+      <p>{{taikhoanebay.ebay}}</p>
+      <p>{{taikhoanebay.user_id}}</p>
+      <p>{{taikhoanebay.date_register}}</p>
+      <p>{{taikhoanebay.count_limit}}</p>
+      <p>{{taikhoanebay.paypal}}</p>
+      <p>{{taikhoanebay.pass_paypal}}</p>
+      <p>{{taikhoanebay.name_vitual}}</p>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-2">
+      <button type="button" class="btn btn-primary btn-block" (click)="chinhsuataikhoanebay(taikhoanebay._id)">Chỉnh Sửa Tài Khoản</button>
+
+      <button type="button" class="btn btn-danger btn-block" (click)="xemtaikhoantaikhoanebay()">Xem Danh Sách Tài Khoản</button>
+  </div>
+  
+</div>
