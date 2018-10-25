@@ -1,0 +1,28 @@
+<div class="list">
+    <div class="row head">
+        <p style="width: 5%">STT</p>
+        <p style="width: 15%">Link Vipon </p>
+        <p style="width: 15%">Link Amazon</p>
+        <p style="width: 10%">Day</p>
+        <p style="width: 15%">Check</p>
+        <p style="width: 10%">Prime</p>
+        <p style="width: 10%">Price Prime</p>
+        <p style="width: 10%">Tài Khoản User Ebay Sell</p>
+        <p class="action">Action</p>
+        
+    </div>
+    <div class="row" *ngFor="let item of danhSachSanPhamVipon; index as i">
+            <p style="width: 5%">STT</p>
+            <p style="width: 15%"><a href="{{item.link_vipon}}">Link Vipon</a></p>
+            <p style="width: 15%"><a href="{{item.link_amazon}}">Link Amazon</a></p>
+            <p style="width: 10%">d</p>
+            <p style="width: 15%">{{item.check}}</p>
+            <p style="width: 10%">{{item.prime}}</p>
+            <p style="width: 10%">{{item.price_prime}}</p>
+            <p style="width: 10%">{{item.id_user_ebay_sell}}</p>
+            <p class="action">
+                <a (click)="goToEdit(item._id)">Edit</a> |
+                <a (click)="goToSee(item._id)">Xem</a>
+            </p>
+        </div>
+</div>

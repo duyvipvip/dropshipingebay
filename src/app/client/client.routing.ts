@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ClientComponent } from './client.component';
-import { HomeComponent } from './home/home.component';
-import { QuanlytaikhoanebayComponent } from './quanlytaikhoanebay/quanlytaikhoanebay.component';
-import { ThemtaikhoanebayComponent } from './themtaikhoanebay/themtaikhoanebay.component';
-import { ChinhsuataikhoanebayComponent } from './chinhsuataikhoanebay/chinhsuataikhoanebay.component';
-import { XemtaikhoanebayComponent } from './xemtaikhoanebay/xemtaikhoanebay.component';
+import { ThemtaikhoanebayComponent } from './taikhoanebay/themtaikhoanebay/themtaikhoanebay.component';
+import { ChinhsuataikhoanebayComponent } from './taikhoanebay/chinhsuataikhoanebay/chinhsuataikhoanebay.component';
+import { XemtaikhoanebayComponent } from './taikhoanebay/xemtaikhoanebay/xemtaikhoanebay.component';
+import { QuanlysanphamviponComponent } from './sanphamvipon/quanlysanphamvipon/quanlysanphamvipon.component';
+import { ThemsanphamviponComponent } from './sanphamvipon/themsanphamvipon/themsanphamvipon.component';
+import { ChinhsuasanphamviponComponent } from './sanphamvipon/chinhsuasanphamvipon/chinhsuasanphamvipon.component';
+import { XemsanphamviponComponent } from './sanphamvipon/xemsanphamvipon/xemsanphamvipon.component';
+import { QuanlytaikhoanebayComponent } from './taikhoanebay/quanlytaikhoanebay/quanlytaikhoanebay.component';
 
 
 const routes: Routes = [
@@ -17,6 +20,11 @@ const routes: Routes = [
             { path: 'themtaikhoanebay', component: ThemtaikhoanebayComponent },
             { path: 'chinhsuataikhoanebay/:id', component: ChinhsuataikhoanebayComponent },
             { path: 'xemtaikhoanebay/:id', component: XemtaikhoanebayComponent },
+
+            { path: 'xemdanhsachsanphamvipon', component: QuanlysanphamviponComponent },
+            { path: 'themsanphamvipon', component: ThemsanphamviponComponent },
+            { path: 'chinhsuasanphamvipon/:id', component: ChinhsuasanphamviponComponent },
+            { path: 'xemsanphamvipon/:id', component: XemsanphamviponComponent },
         ]
     }
 ];

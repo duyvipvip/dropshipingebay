@@ -1,0 +1,43 @@
+<div class="row" *ngIf="sanphamvipon">
+    <div class="col-md-2">
+      <p class="bold">ID:</p>
+      <p class="bold">Tên Sản Phẩm:</p>
+      <p class="bold">Số Ngày Khuyến Mại Còn Lại:</p>
+      <p class="bold">Link Amazon:</p>
+      <p class="bold">Link Vipon:</p>
+      <p class="bold">Tài Khoản Amazon Mua:</p>
+      <p class="bold">Tài Khoản Ebay Bán:</p>
+      <p class="bold">Giá Amazon:</p>
+      <p class="bold">Giá vipon:</p>
+      <p class="bold">Mã Giảm Giá:</p>
+      <p class="bold">Ngày Bắt Đầu:</p>
+      <p class="bold">Prime:</p>
+      <p class="bold">Price Prime:</p>
+      <p class="bold">Số Sản Phẩm Mua Tối Đa:</p>
+    </div>
+    <div class="col-md-6">
+        <p>{{sanphamvipon._id}}</p>
+        <p>{{sanphamvipon.name}}</p>
+        <p>{{sanphamvipon.count_day_remain}}</p>
+        <p><a href="{{sanphamvipon.link_amazon}}">Link</a> </p>
+        <p><a href="{{sanphamvipon.link_vipon}}">Link</a></p>
+        
+        <p>{{sanphamvipon.id_user_amazon_buy}}</p>
+        <p>{{sanphamvipon.id_user_ebay_sell}}</p>
+        
+        <p>{{sanphamvipon.price_amazon}}</p>
+        <p>{{sanphamvipon.price_vipon}}</p>
+        <p>{{sanphamvipon.code}}</p>
+        <p>{{sanphamvipon.date_start}}</p>
+        <p>{{sanphamvipon.prime}}</p>
+        <p>{{sanphamvipon.price_prime}}</p>
+        <p>{{sanphamvipon.count_product_buy}}</p>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-primary btn-block" (click)="chinhsuasanphamvipon(sanphamvipon._id)">Chỉnh Sửa Tài Khoản</button>
+  
+        <button type="button" class="btn btn-danger btn-block" (click)="xemdanhsachsanphamvipon()">Xem Danh Sách Tài Khoản</button>
+    </div>
+    
+  </div>
