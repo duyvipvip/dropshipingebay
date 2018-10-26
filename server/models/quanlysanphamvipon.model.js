@@ -24,7 +24,8 @@ const QuanLySanPhamViponSchema = new Schema({
     },
     // tai khoan ebay ban
     id_user_ebay_sell: {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: 'QuanLyTaiKhoan' 
     },
     // giá ebay
     price_amazon: {
@@ -58,6 +59,14 @@ const QuanLySanPhamViponSchema = new Schema({
     check:{
         type: Boolean,
         default: false
+    },
+    // link hình ảnh
+    link_image: {
+        type: String
+    },
+    // ngi chu
+    note: {
+        type: String
     }
 })
 

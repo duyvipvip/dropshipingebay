@@ -19,10 +19,11 @@ export const APICONFIG = {
         CREATEONE_TAIKHOANEBAY: '/api/QuanLyTaiKhoan/taotaikhoan',
     },
     QUANLYSANPHAMVIPON:{
-        GETALL_TAIKHOANEBAY: '/api/QuanLySanPhamVipon/laydanhsachsanpham',
-        GETONE_TAIKHOANEBAY: (id) => `/api/QuanLySanPhamVipon/laymotsanpham/${id}`,
-        UPDATEONE_TAIKHOANEBAY: (id) => `/api/QuanLySanPhamVipon/capnhatmotsanpham/${id}`,
-        CREATEONE_TAIKHOANEBAY: '/api/QuanLySanPhamVipon/taosanpham',
+        GETALL_SANPHAMVIPON: '/api/QuanLySanPhamVipon/laydanhsachsanpham',
+        GETONE_SANPHAMVIPON: (id) => `/api/QuanLySanPhamVipon/laymotsanpham/${id}`,
+        UPDATEONE_SANPHAMVIPON: (id) => `/api/QuanLySanPhamVipon/capnhatmotsanpham/${id}`,
+        CREATEONE_SANPHAMVIPON: '/api/QuanLySanPhamVipon/taosanpham',
+        DELETEONE_SANPHAMVIPON: (id) => `/api/QuanLySanPhamVipon/xoamotsanpham/${id}`
     },
     AUTH: {
       LOGIN: '/api/auth/login',

@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SUCCESS } from 'src/@http-service/config/messages';
 import { QuanLySanPhamViponService } from 'src/@http-service/quanlysanphamvipon.service';
+import { QuanLyTaiKhoanEbayService } from 'src/@http-service/quanlyttaikhhoanebay.service';
 
 @Component({
     selector: 'app-chinhsuasanphamvipon',
@@ -12,8 +13,10 @@ import { QuanLySanPhamViponService } from 'src/@http-service/quanlysanphamvipon.
 export class ChinhsuasanphamviponComponent implements OnInit {
 
     public sanphamvipon: any;
+    public arrTaiKhoanEbay: any;
     constructor(private route: ActivatedRoute, 
         private quanLySanPhamViponService: QuanLySanPhamViponService,
+        private quanLyTaiKhoanEbayService: QuanLyTaiKhoanEbayService,
         private toastr: ToastrService,
         private router: Router) {
         this.route.params.subscribe((params: Params) => {
@@ -24,7 +27,8 @@ export class ChinhsuasanphamviponComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        //
+        this.getTaiKhoanEbay();
     }
 
     // 
@@ -43,6 +47,26 @@ export class ChinhsuasanphamviponComponent implements OnInit {
         }, (err) => {
 
         });
+    }
+
+    //
+    public changecheck(check){
+        this.sanphamvipon.check = check;
+    }
+
+    //
+    public changeprime(check){
+        this.sanphamvipon.prime = check;
+    }
+
+    // 
+    public getTaiKhoanEbay(){
+        this.quanLyTaiKhoanEbayService.GetAll()
+            .subscribe((data) => {
+                this.arrTaiKhoanEbay = data;
+            }, (err) => {   
+
+            });
     }
 
 }

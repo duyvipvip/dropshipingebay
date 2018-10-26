@@ -14,7 +14,9 @@ export class ThemsanphamviponComponent implements OnInit {
     public sanphamvipon: any = {};
     constructor(private quanLySanPhamViponService: QuanLySanPhamViponService,
         private toastr: ToastrService,
-        private router: Router) { }
+        private router: Router) {
+            this.sanphamvipon.prime = false;
+        }
 
     ngOnInit() {
     }
@@ -27,6 +29,16 @@ export class ThemsanphamviponComponent implements OnInit {
         }, (err) => {
             this.toastr.error(err.error.message, 'Error!');
         });
+    }
+
+    //
+    public changeprime(prime){
+        this.sanphamvipon.prime = prime;
+    }
+
+    //
+    public changecheck(check){
+        this.sanphamvipon.check = check;
     }
 
 }

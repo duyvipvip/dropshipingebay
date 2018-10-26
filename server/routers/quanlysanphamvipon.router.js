@@ -48,7 +48,13 @@ function taosanpham(req, res, next) {
 
 // 
 function laydanhsachsanpham(req, res, next) {
-    QuanLySanPhamViponController.laydanhsachsanpham()
+    const request = {
+        'id_user_ebay_sell': req.params.id_user_ebay_sell || null,
+        'prime': req.params.prime || null,
+        'check': req.params.check || null,
+        'search': req.params.search || null
+    }
+    QuanLySanPhamViponController.laydanhsachsanpham(request)
         .then((data) => {
             res.send(data);
         })
