@@ -4,3 +4,9 @@
 .row{
     margin: 0px;
 }
+.col-md-3{
+    width: 20%;
+}
+.col-md-9{
+    width: 80%;
+}

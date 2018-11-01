@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="usr">Tên sản phẩm:</label>
+            <input type="text" [(ngModel)]="sanphamamazonebay.name_product" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="usr">Link Amazon:</label>
+            <input type="text" [(ngModel)]="sanphamamazonebay.link_amazon" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="usr">Link Ebay:</label>
+            <input type="text" [(ngModel)]="sanphamamazonebay.link_ebay" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="usr">Price Amazon:</label>
+            <input type="text" [(ngModel)]="sanphamamazonebay.price_amazon" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="usr">Ebay User:</label>
+            <select class="form-control" [(ngModel)]="sanphamamazonebay.id_user_ebay_sell">
+                <option [value]="item._id" *ngFor="let item of arrTaiKhoanEbay"> {{item.name_register}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="usr">Price Ebay:</label>
+            <input type="text" [(ngModel)]="sanphamamazonebay.price_ebay" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="usr">Link Image:</label>
+            <input type="text" [(ngModel)]="sanphamamazonebay.link_image" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="usr">Check Product:</label>
+            <p *ngIf="sanphamamazonebay.check_product"><img (click)=changecheck(false) src="assets/image/tick.png"></p>
+            <p *ngIf="!sanphamamazonebay.check_product"><img (click)=changecheck(true) src="assets/image/untick.png"></p>
+        </div>
+        <div class="form-group">
+            <label for="usr">Note:</label>
+            <textarea [(ngModel)]="sanphamamazonebay.note" class="form-control" rows="3"></textarea>
+        </div>
+        
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        <button type="button" class="btn btn-primary" (click)="taomoisanphamvipon()">Tạo Mới</button>
+    </div>
+</div>

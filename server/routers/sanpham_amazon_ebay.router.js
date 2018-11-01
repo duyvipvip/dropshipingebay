@@ -1,5 +1,5 @@
 const Router = require("express").Router();
-const QuanLySanPhamViponController = require("../controllers/quanlysanphamvipon.controller");
+const QuanLySanPhamAmazonEbayController = require("../controllers/sanpham_amazon_ebay.controller");
 
 Router.post("/taosanpham", taosanpham);
 Router.get("/laydanhsachsanpham", laydanhsachsanpham);
@@ -10,39 +10,45 @@ module.exports = Router;
 
 //
 function taosanpham(req, res, next) {
-    if (!req.body.name) {
+    if (!req.body.name_product) {
         next({
             statusCode: 400,
-            message: "Tên Require"
-        })
-    } else if (!req.body.link_vipon) {
-        next({
-            statusCode: 400,
-            message: "Link Vipon Require"
+            message: "Tên Sản Phẩm Require"
         })
     } else if (!req.body.link_amazon) {
         next({
             statusCode: 400,
             message: "Link Amazon Require"
         })
-    } else if (!req.body.code) {
+    } else if (!req.body.link_ebay) {
         next({
             statusCode: 400,
-            message: "Mã Giảm Giá Require"
+            message: "Link Ebay Require"
         })
-    }else if (!req.body.count_day_remain) {
+    } else if (!req.body.price_amazon) {
         next({
             statusCode: 400,
-            message: "Số ngày khuyến mãi còn lại Require"
+            message: "Price Amazon Require"
         })
-    }else{
-        QuanLySanPhamViponController.taosanpham(req.body)
-        .then((data) => {
-            res.send(data);
+    } else if (!req.body.price_ebay) {
+        next({
+            statusCode: 400,
+            message: "Price Ebay Require"
         })
-        .catch((err) => {
-            return next(err);
+    } else if (!req.body.link_image) {
+        next({
+            statusCode: 400,
+            message: "Link Image Require"
         })
+    }
+    else {
+        QuanLySanPhamAmazonEbayController.taosanpham(req.body)
+            .then((data) => {
+                res.send(data);
+            })
+            .catch((err) => {
+                return next(err);
+            })
     }
 }
 
@@ -50,11 +56,11 @@ function taosanpham(req, res, next) {
 function laydanhsachsanpham(req, res, next) {
     const request = {
         'id_user_ebay_sell': req.query.id_user_ebay_sell || null,
-        'prime': req.query.prime,
         'check': req.query.check,
         'search': req.query.search || ""
     }
-    QuanLySanPhamViponController.laydanhsachsanpham(request)
+    console.log(request);
+    QuanLySanPhamAmazonEbayController.laydanhsachsanpham(request)
         .then((data) => {
             res.send(data);
         })
@@ -65,7 +71,7 @@ function laydanhsachsanpham(req, res, next) {
 
 //
 function capnhatmotsanpham(req, res, next) {
-    QuanLySanPhamViponController.capnhatsanpham(req.params.id, req.body)
+    QuanLySanPhamAmazonEbayController.capnhatsanpham(req.params.id, req.body)
         .then((data) => {
             res.send(data);
         })
@@ -76,7 +82,7 @@ function capnhatmotsanpham(req, res, next) {
 
 // 
 function laymotsanpham(req, res, next) {
-    QuanLySanPhamViponController.laymotsanpham(req.params.id)
+    QuanLySanPhamAmazonEbayController.laymotsanpham(req.params.id)
         .then((data) => {
             res.send(data);
         })
@@ -87,7 +93,7 @@ function laymotsanpham(req, res, next) {
 
 //
 function xoamotsanpham(req, res, next) {
-    QuanLySanPhamViponController.xoamotsanpham(req.params.id)
+    QuanLySanPhamAmazonEbayController.xoamotsanpham(req.params.id)
         .then((data) => {
             res.send(data);
         })

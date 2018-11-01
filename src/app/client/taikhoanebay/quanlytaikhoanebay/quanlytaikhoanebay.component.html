@@ -1,25 +1,25 @@
 <div class="list">
     <div class="row head">
         <p style="width: 5%">STT</p>
-        <p style="width: 15%">Tên Đăng kí</p>
-        <p style="width: 15%">Tên Ebay</p>
+        <p style="width: 20%">Tên Đăng kí</p>
+        <!-- <p style="width: 15%">Tên Ebay</p> -->
         <p style="width: 10%">Ngày Đăng Kí</p>
-        <p style="width: 15%">Tên Paypal</p>
+        <p style="width: 20%">Tên Paypal</p>
         <p style="width: 10%">Tên Máy Ảo</p>
         <p style="width: 10%">SDT</p>
-        <p style="width: 10%">Visa</p>
+        <p style="width: 15%">Visa</p>
 
         <p class="action">Action</p>
     </div>
     <div class="row" *ngFor="let item of danhSachTaiKhoanEbay; index as i">
         <p style="width: 5%">{{i+1}}</p>
-        <p style="width: 15%">{{item.name_register}}</p>
-        <p style="width: 15%">{{item.ebay}}</p>
+        <p style="width: 20%">{{item.name_register}}</p>
+        <!-- <p style="width: 15%">{{item.ebay}}</p> -->
         <p style="width: 10%">{{item.date_register}}</p>
-        <p style="width: 15%">{{item.paypal}}</p>
+        <p style="width: 20%">{{item.paypal}}</p>
         <p style="width: 10%">{{item.name_vitual}}</p>
         <p style="width: 10%">{{item.sdt}}</p>
-        <p style="width: 10%">{{item.visa}}</p>
+        <p style="width: 15%">{{item.visa}}</p>
 
         <p class="action">
             <a (click)="goToEdit(item._id)">Edit</a> |

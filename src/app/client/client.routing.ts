@@ -9,6 +9,10 @@ import { ThemsanphamviponComponent } from './sanphamvipon/themsanphamvipon/thems
 import { ChinhsuasanphamviponComponent } from './sanphamvipon/chinhsuasanphamvipon/chinhsuasanphamvipon.component';
 import { XemsanphamviponComponent } from './sanphamvipon/xemsanphamvipon/xemsanphamvipon.component';
 import { QuanlytaikhoanebayComponent } from './taikhoanebay/quanlytaikhoanebay/quanlytaikhoanebay.component';
+import { QuanlysanphamamazonebayComponent } from './sanphamamazonebay/quanlysanphamamazonebay/quanlysanphamamazonebay.component';
+import { ThemsanphamamazonebayComponent } from './sanphamamazonebay/themsanphamamazonebay/themsanphamamazonebay.component';
+import { ChinhsuasanphamamazonebayComponent } from './sanphamamazonebay/chinhsuasanphamamazonebay/chinhsuasanphamamazonebay.component';
+import { XemsanphamamazonebayComponent } from './sanphamamazonebay/xemsanphamamazonebay/xemsanphamamazonebay.component';
 
 
 const routes: Routes = [
@@ -25,6 +29,14 @@ const routes: Routes = [
             { path: 'themsanphamvipon', component: ThemsanphamviponComponent },
             { path: 'chinhsuasanphamvipon/:id', component: ChinhsuasanphamviponComponent },
             { path: 'xemsanphamvipon/:id', component: XemsanphamviponComponent },
+
+
+            { path: 'xemdanhsachsanphamamazonebay', component: QuanlysanphamamazonebayComponent },
+            { path: 'themsanphamamazonebay', component: ThemsanphamamazonebayComponent },
+            { path: 'chinhsuasanphamamazonebay/:id', component: ChinhsuasanphamamazonebayComponent },
+            { path: 'xemsanphamamazonebay/:id', component: XemsanphamamazonebayComponent },
+
+            
         ]
     }
 ];

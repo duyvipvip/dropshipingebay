@@ -25,6 +25,13 @@ export const APICONFIG = {
         CREATEONE_SANPHAMVIPON: '/api/QuanLySanPhamVipon/taosanpham',
         DELETEONE_SANPHAMVIPON: (id) => `/api/QuanLySanPhamVipon/xoamotsanpham/${id}`
     },
+    QUANLYSANPHAMAMZONEBAY:{
+        GETALL_SANPHAMAMZONEBAY: '/api/QuanLySanPhamAmazonEbay/laydanhsachsanpham',
+        GETONE_SANPHAMAMZONEBAY: (id) => `/api/QuanLySanPhamAmazonEbay/laymotsanpham/${id}`,
+        UPDATEONE_SANPHAMAMZONEBAY: (id) => `/api/QuanLySanPhamAmazonEbay/capnhatmotsanpham/${id}`,
+        CREATEONE_SANPHAMAMZONEBAY: '/api/QuanLySanPhamAmazonEbay/taosanpham',
+        DELETEONE_SANPHAMAMZONEBAY: (id) => `/api/QuanLySanPhamAmazonEbay/xoamotsanpham/${id}`
+    },
     AUTH: {
       LOGIN: '/api/auth/login',
       LOGOUT: '/api/auth/logout'

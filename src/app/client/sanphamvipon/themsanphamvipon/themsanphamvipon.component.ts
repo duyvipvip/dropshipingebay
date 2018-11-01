@@ -3,6 +3,7 @@ import { SUCCESS } from 'src/@http-service/config/messages';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { QuanLySanPhamViponService } from 'src/@http-service/quanlysanphamvipon.service';
+import { QuanLyTaiKhoanEbayService } from 'src/@http-service/quanlyttaikhhoanebay.service';
 
 @Component({
     selector: 'app-themsanphamvipon',
@@ -10,9 +11,10 @@ import { QuanLySanPhamViponService } from 'src/@http-service/quanlysanphamvipon.
     styleUrls: ['./themsanphamvipon.component.css']
 })
 export class ThemsanphamviponComponent implements OnInit {
-
+    public arrTaiKhoanEbay: any;
     public sanphamvipon: any = {};
     constructor(private quanLySanPhamViponService: QuanLySanPhamViponService,
+        private quanLyTaiKhoanEbayService: QuanLyTaiKhoanEbayService,
         private toastr: ToastrService,
         private router: Router) {
             this.sanphamvipon.prime = false;
@@ -41,4 +43,14 @@ export class ThemsanphamviponComponent implements OnInit {
         this.sanphamvipon.check = check;
     }
 
+    // 
+    // 
+    public getTaiKhoanEbay(){
+        this.quanLyTaiKhoanEbayService.GetAll()
+            .subscribe((data) => {
+                this.arrTaiKhoanEbay = data;
+            }, (err) => {   
+
+            });
+    }
 }

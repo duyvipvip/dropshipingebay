@@ -17,10 +17,17 @@ import { QuanlysanphamviponComponent } from './sanphamvipon/quanlysanphamvipon/q
 import { ThemsanphamviponComponent } from './sanphamvipon/themsanphamvipon/themsanphamvipon.component';
 import { ChinhsuasanphamviponComponent } from './sanphamvipon/chinhsuasanphamvipon/chinhsuasanphamvipon.component';
 import { XemsanphamviponComponent } from './sanphamvipon/xemsanphamvipon/xemsanphamvipon.component';
+import { XemsanphamamazonebayComponent } from './sanphamamazonebay/xemsanphamamazonebay/xemsanphamamazonebay.component';
+import { ThemsanphamamazonebayComponent } from './sanphamamazonebay/themsanphamamazonebay/themsanphamamazonebay.component';
+import { ChinhsuasanphamamazonebayComponent } from './sanphamamazonebay/chinhsuasanphamamazonebay/chinhsuasanphamamazonebay.component';
+import { QuanlysanphamamazonebayComponent } from './sanphamamazonebay/quanlysanphamamazonebay/quanlysanphamamazonebay.component';
+import { QuanLySanPhamAmazonEbayService } from 'src/@http-service/quanlysanphamamazonebay.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
     imports: [ClientRoutingModule, 
         SharedModule,
+        NgxPaginationModule,
     ],
     exports: [],
     declarations: [ClientComponent,
@@ -35,7 +42,10 @@ import { XemsanphamviponComponent } from './sanphamvipon/xemsanphamvipon/xemsanp
          QuanlysanphamviponComponent, 
          ThemsanphamviponComponent, 
          ChinhsuasanphamviponComponent, 
-         XemsanphamviponComponent],
-    providers: [QuanLyTaiKhoanEbayService, QuanLySanPhamViponService],
+         XemsanphamviponComponent, XemsanphamamazonebayComponent, ThemsanphamamazonebayComponent, ChinhsuasanphamamazonebayComponent, QuanlysanphamamazonebayComponent],
+    providers: [QuanLyTaiKhoanEbayService, 
+        QuanLySanPhamViponService,
+        QuanLySanPhamAmazonEbayService
+    ],
 })
 export class ClientModule { }

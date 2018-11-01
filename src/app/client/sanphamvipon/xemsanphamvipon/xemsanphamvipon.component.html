@@ -1,52 +1,55 @@
 <div class="row" *ngIf="sanphamvipon">
     <div class="col-md-2">
-      <p class="bold">ID:</p>
-      <p class="bold">Tên Sản Phẩm:</p>
-      <p class="bold" style="height: 72px;">Hình Ảnh:</p>
-      <p class="bold">Số Ngày Khuyến Mại Còn Lại:</p>
-      <p class="bold">Check:</p>
-      <p class="bold">Link Amazon:</p>
-      <p class="bold">Link Vipon:</p>
-      <p class="bold">Tài Khoản Amazon Mua:</p>
-      <p class="bold">Tài Khoản Ebay Bán:</p>
-      <p class="bold">Giá Amazon:</p>
-      <p class="bold">Giá vipon:</p>
-      <p class="bold">Mã Giảm Giá:</p>
-      <p class="bold">Ngày Bắt Đầu:</p>
-      <p class="bold">Prime:</p>
-      <p class="bold">Price Prime:</p>
-      <p class="bold">Số Sản Phẩm Mua Tối Đa:</p>
-      <p class="bold">Nghi Chú:</p>
+        <p class="bold">ID:</p>
+        <p class="bold" style="height: 82px;">Tên Sản Phẩm:</p>
+        <p class="bold" style="height: 72px;">Hình Ảnh:</p>
+        <p class="bold">Ngày Khuyến Mại:</p>
+        <p class="bold">Check:</p>
+        <p class="bold">Link Amazon:</p>
+        <p class="bold">Link Vipon:</p>
+        <p class="bold">Account Amz Mua:</p>
+        <p class="bold">Tài Khoản Ebay Bán:</p>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <p>{{sanphamvipon._id}}</p>
-        <p>{{sanphamvipon.name}}</p>
+        <p style="height: 82px;">{{sanphamvipon.name}}</p>
         <p> <img class="image" src="{{sanphamvipon.link_image}}" alt=""> </p>
         <p>{{sanphamvipon.count_day_remain}}</p>
-        <p  *ngIf="sanphamvipon.check"><img  src="assets/image/tick.png"></p>
-        <p  *ngIf="!sanphamvipon.check"><img  src="assets/image/untick.png"></p>
-
+        <p *ngIf="sanphamvipon.check"><img src="assets/image/tick.png"></p>
+        <p *ngIf="!sanphamvipon.check"><img src="assets/image/untick.png"></p>
         <p><a href="{{sanphamvipon.link_amazon}}">Link Amazon</a> </p>
         <p><a href="{{sanphamvipon.link_vipon}}">Link Vipon</a></p>
-        
         <p>{{sanphamvipon.id_user_amazon_buy}}</p>
         <p>{{sanphamvipon.id_user_ebay_sell.name_register}}</p>
-       
+    </div>
+    <div class="col-md-2">
+        <p class="bold">Giá Amazon:</p>
+        <p class="bold">Giá vipon:</p>
+        <p class="bold">Mã Giảm Giá:</p>
+        <p class="bold">Ngày Bắt Đầu:</p>
+        <p class="bold">Prime:</p>
+        <p class="bold">Price Prime:</p>
+        <p class="bold" style="height: 60px;">Số Sản Phẩm Mua Tối Đa:</p>
+        <p class="bold">Nghi Chú:</p>
+    </div>
+
+    <div class="col-md-4">
         <p>{{sanphamvipon.price_amazon}}</p>
         <p>{{sanphamvipon.price_vipon}}</p>
         <p>{{sanphamvipon.code}}</p>
         <p>{{sanphamvipon.date_start}}</p>
-        <p  *ngIf="sanphamvipon.prime"><img  src="assets/image/tick.png"></p>
-        <p  *ngIf="!sanphamvipon.prime"><img  src="assets/image/untick.png"></p>
+        <p *ngIf="sanphamvipon.prime"><img src="assets/image/tick.png"></p>
+        <p *ngIf="!sanphamvipon.prime"><img src="assets/image/untick.png"></p>
         <p>{{sanphamvipon.price_prime}}</p>
         <p>{{sanphamvipon.count_product_buy}}</p>
         <p>{{sanphamvipon.note}}</p>
     </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-2">
-        <button type="button" class="btn btn-primary btn-block" (click)="chinhsuasanphamvipon(sanphamvipon._id)">Chỉnh Sửa Sản Phẩm</button>
-  
-        <button type="button" class="btn btn-danger btn-block" (click)="xemdanhsachsanphamvipon()">Xem Danh Sách Sản Phẩm</button>
-    </div>
-    
-  </div>
+
+</div>
+<div class="bottom">
+    <button type="button" class="btn btn-primary btn-block" (click)="chinhsuasanphamvipon(sanphamvipon._id)">Chỉnh
+        Sửa Sản Phẩm</button>
+
+    <button type="button" class="btn btn-danger btn-block" (click)="xemdanhsachsanphamvipon()">Xem Danh Sách Sản
+        Phẩm</button>
+</div>

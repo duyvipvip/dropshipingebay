@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Account Ebay</label>
+      <select class="form-control" [(ngModel)]="id_user_ebay_sell" (change)="onChange($event)">
+        <option [value]="item._id" *ngFor="let item of arrTaiKhoanEbay"> {{item.name_register}}</option>
+      </select>
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Kiểm Tra</label>
+      <select class="form-control" [(ngModel)]="check" (change)="onChange($event)">
+        <option [value]="true"> True</option>
+        <option [value]="false"> False</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>Tìm Kiếm</label>
+      <input type="text" [(ngModel)]="search" (keypress)="onKyPress($event.target.value)" class="form-control"
+        placeholder="Tìm Kiếm">
+    </div>
+  </div>
+</div>
+<div class="list">
+  <div class="row head">
+    <p style="width: 5%">STT</p>
+    <p style="width: 20%">Name</p>
+    <p style="width: 15%">Image</p>
+    <p style="width: 10%">Amazon</p>
+    <p style="width: 10%">Ebay </p>
+    <p style="width: 10%">Price Amazon</p>
+    <p style="width: 10%">Price Ebay</p>
+    <p style="width: 10%">Check</p>
+    <p>Action</p>
+  </div>
+  <div *ngIf="danhSachSanPhamAmazonEbay">
+    <div class="row" *ngFor="let item of danhSachSanPhamAmazonEbay; index as i">
+      <p style="width: 5%">{{i+1}}</p>
+      <p style="width: 20%">{{item.name_product}}</p>
+      <p style="width: 15%"> <img class="image" src="{{item.link_image}}" alt=""></p>
+      <p style="width: 10%"><a href="{{item.link_amazon}}">Link</a></p>
+      <p style="width: 10%"><a href="{{item.link_ebay}}">Link</a></p>
+      <p style="width: 10%">{{item.price_amazon}}</p>
+      <p style="width: 10%">{{item.price_ebay}}</p>
+      <p style="width: 10%" *ngIf="item.check_product"><img src="assets/image/tick.png"></p>
+      <p style="width: 10%" *ngIf="!item.check_product"><img src="assets/image/untick.png"></p>
+      <p class="action">
+        <a (click)="goToEdit(item._id)"><img src="assets/image/edit.png"></a> |
+        <a (click)="goToSee(item._id)"><img src="assets/image/see.png"></a> |
+        <a (click)="chooseProductDelete(item)" data-toggle="modal" data-target="#myModal"><img src="assets/image/trash.png"></a>
+      </p>
+    </div>
+  </div>
+
+</div>
+<!-- <div class="mt-4 custom-pagination">
+  <pagination-controls (pageChange)="pageChange($event)"></pagination-controls>
+</div> -->
+
+<!-- modal -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Thông Báo Xóa</h4>
+      </div>
+      <div class="modal-body">
+        <p>Bạn Có Chắc Muốn Xóa Sản Phẩm Này Không ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="delete()" class="btn btn-danger">Xóa</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+      </div>
+    </div>
+  </div>
+</div>

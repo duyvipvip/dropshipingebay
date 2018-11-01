@@ -1,0 +1,34 @@
+<div class="row" *ngIf="sanphamvipon">
+    <div class="col-md-2">
+        <p class="bold">ID:</p>
+        <p class="bold">Tên Sản Phẩm:</p>
+        <p class="bold" style="height: 72px;">Hình Ảnh:</p>
+        <p class="bold">Link Amazon:</p>
+    </div>
+    <div class="col-md-4">
+        <p>{{sanphamvipon._id}}</p>
+        <p>{{sanphamvipon.name_product}}</p>
+        <p> <img class="image" src="{{sanphamvipon.link_image}}"></p>
+        <p><a href="{{sanphamvipon.link_amazon}}">Link Amazon</a> </p>
+    </div>
+
+    <div class="col-md-2">
+        <p class="bold">Link Ebay:</p>
+        <p class="bold">Tài Khoản Ebay Bán:</p>
+        <p class="bold">Check:</p>
+        <p class="bold">Nghi Chú:</p>
+    </div>
+    <div class="col-md-4">
+        <p><a href="{{sanphamvipon.price_ebay}}">Link Ebay</a></p>
+        <p>{{sanphamvipon.id_user_ebay_sell.name_register}}</p>
+        <p *ngIf="sanphamvipon.check"><img src="assets/image/tick.png"></p>
+        <p *ngIf="!sanphamvipon.check"><img src="assets/image/untick.png"></p>
+        <p>{{sanphamvipon.note}}</p>
+    </div>
+</div>
+<div class="bottom">
+    <button type="button" class="btn btn-primary btn-block" (click)="chinhsuasanphamvipon(sanphamvipon._id)">Chỉnh Sửa
+        Sản Phẩm</button>
+
+    <button type="button" class="btn btn-danger btn-block" (click)="xemdanhsachsanphamvipon()">Xem Danh Sách Sản Phẩm</button>
+</div>

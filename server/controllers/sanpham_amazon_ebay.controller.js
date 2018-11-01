@@ -1,4 +1,4 @@
-const QuanLySanPhamVipon = require("../models/quanlysanphamvipon.model");
+const QuanLySanPhamAmazonEbay = require("../models/sanpham_amazon_ebay.model");
 
 module.exports = {
     taosanpham: taosanpham,
@@ -10,7 +10,7 @@ module.exports = {
 
 //
 function taosanpham(body){
-    return QuanLySanPhamVipon.create(body)
+    return QuanLySanPhamAmazonEbay.create(body)
             .then((data) => {
                 return Promise.resolve(data);
             })
@@ -21,12 +21,12 @@ function taosanpham(body){
 
 //
 function laydanhsachsanpham(request){
-    return QuanLySanPhamVipon.find({prime: request.prime, check: request.check, "name" : { $regex: request.search, $options: 'i' }}).lean()
+    return QuanLySanPhamAmazonEbay.find({check_product: request.check, name_product : { $regex: request.search, $options: 'i' }}).lean()
         .populate('id_user_ebay_sell')
         .then((data) => {
-            for(let i=0; i< data.length; i++){
-                data[i].calculate_date = distance_two_day(data[i].date_start, data[i].count_day_remain);
-            }
+            // for(let i=0; i< data.length; i++){
+            //     data[i].calculate_date = distance_two_day(data[i].date_start, data[i].count_day_remain);
+            // }
             if(request.id_user_ebay_sell != null){
                 return Promise.resolve(data.filter(p => p.id_user_ebay_sell._id == request.id_user_ebay_sell));
             }
@@ -39,7 +39,7 @@ function laydanhsachsanpham(request){
 
 //
 function laymotsanpham(id){
-    return QuanLySanPhamVipon.findById(id)
+    return QuanLySanPhamAmazonEbay.findById(id)
         .populate('id_user_ebay_sell')
         .then((data) => {
             return Promise.resolve(data);
@@ -51,7 +51,7 @@ function laymotsanpham(id){
 
 //
 function xoamotsanpham(id){
-    return QuanLySanPhamVipon.findByIdAndDelete(id)
+    return QuanLySanPhamAmazonEbay.findByIdAndDelete(id)
         .then((data) => {
             return Promise.resolve(data);
         })
@@ -62,25 +62,11 @@ function xoamotsanpham(id){
 
 //
 function capnhatsanpham(id, body){
-    return QuanLySanPhamVipon.findByIdAndUpdate(id, body)
+    return QuanLySanPhamAmazonEbay.findByIdAndUpdate(id, body)
         .then((data) => {
             return Promise.resolve(data);
         })
         .catch((err) => {
             return Promise.reject(err);
         })
-}
-
-//
-function distance_two_day(date, day){
-    date = date.split("/");
-    let now_date = new Date();
-    let current_date = [];
-    current_date[0] = now_date.getDate();
-    current_date[1] = now_date.getMonth()+1;
-    current_date[2] = now_date.getFullYear();
-
-
-    var diff = Math.abs(new Date(current_date[2], current_date[1], current_date[0], 0, 0, 0,0).getTime() - new Date(date[2], date[1], date[0], 0, 0, 0,0).getTime());
-    return day - Math.ceil(diff / (1000 * 3600 * 24)); ;
 }

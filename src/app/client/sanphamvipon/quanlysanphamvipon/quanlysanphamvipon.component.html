@@ -30,46 +30,49 @@
     <div class="col-md-2">
         <div class="form-group">
             <label>Tìm Kiếm</label>
-            <input type="text" class="form-control" placeholder="Tìm Kiếm">
+            <input type="text" [(ngModel)]="search" (keypress)="onKyPress($event.target.value)" class="form-control" placeholder="Tìm Kiếm">
         </div>
     </div>
 </div>
 <div class="list">
     <div class="row head">
         <p style="width: 3%">STT</p>
-        <p style="width: 15%">Name</p>
+        <p style="width: 20%">Name</p>
         <p style="width: 10%">Image</p>
-        <p style="width: 7%">Link Vipon </p>
-        <p style="width: 7%">Link Amazon</p>
+        <p style="width: 7%">Vipon </p>
+        <p style="width: 7%">Amazon</p>
         <p style="width: 5%">Day</p>
         <p style="width: 5%">Check</p>
-        <p style="width: 10%">Ngày Bắt Đầu</p>
+        <!-- <p style="width: 10%">Ngày Bắt Đầu</p> -->
         <p style="width: 5%">Prime</p>
         <p style="width: 10%">Mã Giảm Giá</p>
         <p style="width: 17%">Account Ebay</p>
         <p class="action">Action</p>
 
     </div>
-    <div class="row" *ngFor="let item of danhSachSanPhamVipon; index as i">
-        <p style="width: 3%">{{i+1}}</p>
-        <p style="width: 15%">{{item.name}}</p>
-        <p style="width: 10%"> <img class="image" src="{{item.link_image}}" alt=""></p>
-        <p style="width: 7%"><a href="{{item.link_vipon}}">Link Vipon</a></p>
-        <p style="width: 7%"><a href="{{item.link_amazon}}">Link Amazon</a></p>
-        <p style="width: 5%">{{item.calculate_date}}</p>
-        <p style="width: 5%" *ngIf="item.check"><img src="assets/image/tick.png"></p>
-        <p style="width: 5%" *ngIf="!item.check"><img src="assets/image/untick.png"></p>
-        <p style="width: 10%">21/21/2012</p>
-        <p style="width: 5%" *ngIf="item.prime"><img src="assets/image/tick.png"></p>
-        <p style="width: 5%" *ngIf="!item.prime"><img src="assets/image/untick.png"></p>
-        <p style="width: 10%">{{item.code}}</p>
-        <p style="width: 17%">{{item.id_user_ebay_sell.name_register}}</p>
-        <p class="action">
-            <a (click)="goToEdit(item._id)"><img src="assets/image/edit.png"></a> |
-            <a (click)="goToSee(item._id)"><img src="assets/image/see.png"></a> |
-            <a (click)="chooseProductDelete(item)" data-toggle="modal" data-target="#myModal"><img src="assets/image/trash.png"></a>
-        </p>
+    <div *ngIf="danhSachSanPhamVipon">
+        <div class="row" *ngFor="let item of danhSachSanPhamVipon; index as i">
+            <p style="width: 3%">{{i+1}}</p>
+            <p style="width: 20%">{{item.name}}</p>
+            <p style="width: 10%"> <img class="image" src="{{item.link_image}}" alt=""></p>
+            <p style="width: 7%"><a href="{{item.link_vipon}}">Link</a></p>
+            <p style="width: 7%"><a href="{{item.link_amazon}}">Link</a></p>
+            <p style="width: 5%">{{item.calculate_date}}</p>
+            <p style="width: 5%" *ngIf="item.check"><img src="assets/image/tick.png"></p>
+            <p style="width: 5%" *ngIf="!item.check"><img src="assets/image/untick.png"></p>
+            <!-- <p style="width: 10%">21/21/2012</p> -->
+            <p style="width: 5%" *ngIf="item.prime"><img src="assets/image/tick.png"></p>
+            <p style="width: 5%" *ngIf="!item.prime"><img src="assets/image/untick.png"></p>
+            <p style="width: 10%">{{item.code}}</p>
+            <p style="width: 17%">{{item.id_user_ebay_sell?.name_register}}</p>
+            <p class="action">
+                <a (click)="goToEdit(item._id)"><img src="assets/image/edit.png"></a> |
+                <a (click)="goToSee(item._id)"><img src="assets/image/see.png"></a> |
+                <a (click)="chooseProductDelete(item)" data-toggle="modal" data-target="#myModal"><img src="assets/image/trash.png"></a>
+            </p>
+        </div>
     </div>
+
 </div>
 
 <!-- modal -->
@@ -87,7 +90,7 @@
                 <p>Bạn Có Chắc Muốn Xóa Sản Phẩm Này Không ?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" (click)="delete()" class="btn btn-danger">Xóa</button>
+                <!-- <button type="button" (click)="delete()" class="btn btn-danger">Xóa</button> -->
                 <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
             </div>
         </div>

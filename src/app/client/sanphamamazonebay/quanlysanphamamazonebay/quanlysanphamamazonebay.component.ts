@@ -1,26 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { QuanLySanPhamViponService } from 'src/@http-service/quanlysanphamvipon.service';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { SUCCESS } from 'src/@http-service/config/messages';
+import { QuanLySanPhamAmazonEbayService } from 'src/@http-service/quanlysanphamamazonebay.service';
+import { ToastrService } from 'ngx-toastr';
 import { QuanLyTaiKhoanEbayService } from 'src/@http-service/quanlyttaikhhoanebay.service';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-quanlysanphamvipon',
-    templateUrl: './quanlysanphamvipon.component.html',
-    styleUrls: ['./quanlysanphamvipon.component.css']
+    selector: 'app-quanlysanphamamazonebay',
+    templateUrl: './quanlysanphamamazonebay.component.html',
+    styleUrls: ['./quanlysanphamamazonebay.component.scss']
 })
-export class QuanlysanphamviponComponent implements OnInit {
-    public danhSachSanPhamVipon: any = null;
+export class QuanlysanphamamazonebayComponent implements OnInit {
+
+    public danhSachSanPhamAmazonEbay: any = null;
     public sanphamDelete: any;
     public arrTaiKhoanEbay: any;
+    public totalItems: number = 1;
+    public amount: number = 1;
+    public currentPage: number;
 
     // export url
     public id_user_ebay_sell: string = "";
     public check: boolean = true;
-    public prime: boolean = true;
     public search: string = '';
-    constructor(private quanLySanPhamViponService: QuanLySanPhamViponService,
+    constructor(private quanLySanPhamAmazonEbayService: QuanLySanPhamAmazonEbayService,
         private toastr: ToastrService,
         private quanLyTaiKhoanEbayService: QuanLyTaiKhoanEbayService,
         private router: Router) { }
@@ -34,16 +37,15 @@ export class QuanlysanphamviponComponent implements OnInit {
 
     // 
     public getAllDanhSachTaiKhoanEbay() {
-        this.danhSachSanPhamVipon = null;
+        this.danhSachSanPhamAmazonEbay = null;
         const request = {
             id_user_ebay_sell: this.id_user_ebay_sell,
             check: this.check,
-            prime: this.prime,
             search: this.search,
         }
 
-        this.quanLySanPhamViponService.GetAll(request).subscribe((data) => {
-            this.danhSachSanPhamVipon = data;
+        this.quanLySanPhamAmazonEbayService.GetAll(request).subscribe((data) => {
+            this.danhSachSanPhamAmazonEbay = data;
         }, (err) => {
 
         });
@@ -51,49 +53,55 @@ export class QuanlysanphamviponComponent implements OnInit {
 
     //
     public goToEdit(id: string) {
-        this.router.navigate(['/client/chinhsuasanphamvipon', id]);
+        this.router.navigate(['/client/chinhsuasanphamamazonebay', id]);
     }
 
     //
     public goToSee(id: string) {
-        this.router.navigate(['/client/xemsanphamvipon', id]);
+        this.router.navigate(['/client/xemsanphamamazonebay', id]);
 
     }
 
     //
-    chooseProductDelete(sanphamDelete){
+    chooseProductDelete(sanphamDelete) {
         this.sanphamDelete = sanphamDelete;
     }
 
     // 
-    public delete(){
-        debugger;
-        this.quanLySanPhamViponService.DeleteOne(this.sanphamDelete._id)
+    public delete() {
+        this.quanLySanPhamAmazonEbayService.DeleteOne(this.sanphamDelete._id)
             .subscribe((data) => {
                 this.toastr.success(SUCCESS.SANPHAMVIPON_DELETE, 'Success!');
-                this.getAllDanhSachTaiKhoanEbay();
             }, (err) => {
                 this.toastr.success(err.error.message, 'Success!');
             });
     }
 
     // 
-    public getTaiKhoanEbay(){
+    public getTaiKhoanEbay() {
         this.quanLyTaiKhoanEbayService.GetAll()
             .subscribe((data) => {
                 this.arrTaiKhoanEbay = data;
-            }, (err) => {   
+            }, (err) => {
 
             });
     }
 
     //
-    public onChange(event){
+    public onChange(event) {
         this.getAllDanhSachTaiKhoanEbay();
     }
+
     //
-    public onKyPress(value){
+    public onKyPress(value) {
         this.search = value;
         this.getAllDanhSachTaiKhoanEbay();
     }
+
+    //
+    public pageChange(event) {
+        this.currentPage = event;
+        this.getAllDanhSachTaiKhoanEbay();
+    }
+
 }
